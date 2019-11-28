@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Search Page</title>
-    </head>
-    <body>
-        <h1>This is the search page</h1>
-        <p>Adopt!</p>
-    </body>
-</html>
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>This is the search page</h1>
+    <p>Adopt!</p>
+    <div class="pets">
+        {% for pet in pets %}
+            <div class="pet">
+                <img src="{{pet.image.url}}" style="height:20%; width:20%;"/>
+                <h2><a href="{% url 'search:detail' slug=pet.slug %}">{{pet.name}}</a></h2>
+                <p>Sex: {{pet.get_sex}}</p>
+                <p>Age: {{pet.get_age}}</p>
+                <p>Breed: {{pet.breed}}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
