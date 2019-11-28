@@ -17,3 +17,7 @@ class Pet(models.Model):
     acquired_date = models.DateField(auto_now_add=True)
     breed_id_fk = models.IntegerField()
     image = models.CharField(max_length=250)
+
+
+def __str__(self):
+    return self.name
