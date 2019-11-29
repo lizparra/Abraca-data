@@ -18,6 +18,7 @@ class Pet(models.Model):
     breed = models.CharField(max_length=50, null=False, default='Unknown')
     image = models.ImageField(default='default.jpeg', blank=True)
     slug = models.SlugField(default='unknown')
+    description = models.TextField(default=' ')
 
     def __str__(self):
         return self.name

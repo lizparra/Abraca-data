@@ -8,8 +8,22 @@
         <link rel="stylesheet" href="{% static 'styles.css' %}">
     </head>
     <body>
-        <div class="wrapper">
+        <header class="wrapper">
             <h1><a href="{% url 'search:list' %}"><img class="logo" src="{% static 'dog-logo.jpeg' %}" style="height: 10%; width:10%;"/> </a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">
+                                Log out
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="wrapper">
             {% block content %}
             {% endblock %}
         </div>
